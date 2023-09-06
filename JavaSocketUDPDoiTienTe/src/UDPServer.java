@@ -1,12 +1,14 @@
 import java.net.*;
-// ...
 import java.text.DecimalFormat;
 
 public class UDPServer {
+    static double currencyUSD =23000;
+    static double currencyCAD =17000;
+    
     public static void main(String[] args) {
         DatagramSocket socket = null;
         try {
-            socket = new DatagramSocket(9876); // Mở cổng 9876 cho máy chủ
+            socket = new DatagramSocket(9876); 
 
             System.out.println("Server is listening...");
 
@@ -50,14 +52,11 @@ public class UDPServer {
     }
 
     private static double convertCurrency(double amount, String currency) {
-        // Tỉ giá cố định (ví dụ: 1 USD = 23000 VND)
         if (currency.equalsIgnoreCase("USD")) {
-            return amount * 23000;
-        } else if (currency.equalsIgnoreCase("EUR")) {
-            return amount * 27000;
+            return amount * currencyUSD;
+        } else if (currency.equalsIgnoreCase("CAD")) {
+            return amount * currencyCAD;
         }
-        // Thêm các tỷ giá chuyển đổi khác ở đây
-
         return 0;
     }
 }

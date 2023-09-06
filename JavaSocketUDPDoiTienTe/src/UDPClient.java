@@ -1,5 +1,4 @@
 import java.net.*;
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class UDPClient {
@@ -7,7 +6,7 @@ public class UDPClient {
         DatagramSocket socket = null;
         try {
             socket = new DatagramSocket(); // Tự động chọn cổng
-            InetAddress serverAddress = InetAddress.getByName("localhost"); // Địa chỉ máy chủ và cổng
+            InetAddress serverAddress = InetAddress.getByName("localhost"); 
 
             Scanner scanner = new Scanner(System.in);
 
@@ -19,7 +18,7 @@ public class UDPClient {
 
             double amountToSend = Double.parseDouble(cleanedAmountInput);
 
-            System.out.print("Enter the currency (USD/EUR): ");
+            System.out.print("Enter the currency (USD/CAD): ");
             String currencyToSend = scanner.next();
 
             String messageToSend = amountToSend + "," + currencyToSend;
